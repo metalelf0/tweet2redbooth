@@ -5,3 +5,4 @@ TweetStream.configure do |config|
   config.oauth_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
   config.auth_method        = :oauth
 end
+

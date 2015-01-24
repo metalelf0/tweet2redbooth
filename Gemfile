@@ -18,11 +18,13 @@ gem 'haml-rails'
 gem 'pg'
 gem 'simple_form'
 gem 'thin'
+gem 'resque'
 
 # Gem to use twitter streaming API using event_machine
 gem 'tweetstream'
 
 group :development do
+  gem 'pry'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'html2haml'

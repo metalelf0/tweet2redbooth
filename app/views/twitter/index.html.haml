@@ -1,0 +1,13 @@
+%form
+  .form-group
+    %label{for: 'query'}
+      Query:
+    %input#query.form-control{ name: 'query' }
+  %button.btn.btn-default{ type: 'submit' }
+    Start listening!
+
+%ul
+- @latest_tweets.each do |tweet|
+  %li= tweet.text
+
+    
