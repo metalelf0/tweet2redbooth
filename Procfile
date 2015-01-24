@@ -1,2 +1,2 @@
 web: bundle exec thin start -p $PORT
-worker: QUEUE=* rake resque:work
+worker: TERM_CHILD=1 QUEUE=* rake resque:work
