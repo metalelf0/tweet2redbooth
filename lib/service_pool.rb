@@ -1,7 +1,7 @@
 class ServicePool
 
   def self.running?(user)
-    user.client_control_events.last.running?
+    user.client_control_events.last && user.client_control_events.last.running?
   end
 
   def self.run(user, keywords)
