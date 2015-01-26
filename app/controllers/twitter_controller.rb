@@ -13,7 +13,7 @@ class TwitterController < ApplicationController
       ServicePool.run(current_user, [ keyword ])
       flash[:notice] = "Service started, fetching tweets..."
     end
-    redirect_to :root
+    redirect_to url_for(action: :index)
   end
 
   def stop
@@ -23,6 +23,6 @@ class TwitterController < ApplicationController
     else
       flash[:alert] = "Cannot kill service, please make sure you start it before killing it :)"
     end
-    redirect_to :root
+    redirect_to url_for(action: :index)
   end
 end
