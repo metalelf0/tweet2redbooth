@@ -1,5 +1,23 @@
-= link_to "Start service", url_for(action: 'start')
+.col-md-10.col-md-offset-1
 
-%ul
-- @latest_tweets.each do |tweet|
-  %li= tweet.text
+  .control-form
+    - if @running
+      = form_tag(action: 'stop') do |form|
+        = button_tag 'Stop service', class: 'btn btn-default'
+    - else
+      = form_tag(action: 'start') do |form|
+        = label_tag 'keyword', "Keyword:"
+        = text_field_tag 'keyword'
+        = button_tag 'Start service', class: 'btn btn-default'
+
+  %table.table.table-hover
+    %tr
+      %th Tweeted by
+      %th Content
+      %th When
+
+    - @latest_tweets.each do |tweet|
+      %tr
+        %td= tweet.tweeter
+        %td= tweet.text
+        %td= "#{time_ago_in_words(tweet.created_at)} ago"
