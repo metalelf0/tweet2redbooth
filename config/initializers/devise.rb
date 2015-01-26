@@ -234,7 +234,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :redbooth, 'ab62433588c917d8240f52b2cf3774ca5b84d2ee9303a270772921cc06220c6b','485a9a48b1164109b632d822241e3de0238b3b0aca73495a1a1f28990d2f724e'
+  config.omniauth :redbooth, ENV['REDBOOTH_APP_ID'], ENV['REDBOOTH_APP_SECRET']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
