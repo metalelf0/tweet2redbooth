@@ -20,7 +20,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       client_secret: ENV['REDBOOTH_APP_SECRET'],
       code: code,
       grant_type: 'authorization_code',
-      redirect_uri: 'http://localhost:5000/users/auth/redbooth/callback'
+      redirect_uri: ENV['REDBOOTH_REDIRECT_URI']
     }
 
     token_data = RestClient.post "https://redbooth.com/oauth2/token", request_params
