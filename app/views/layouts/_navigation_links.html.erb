@@ -5,6 +5,6 @@
   <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
 <% else %>
   <li><%= link_to 'Home', root_path, class: 'navbar-brand' %></li>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
+  <li><%= link_to "Sign in with Redbooth", user_omniauth_authorize_path(:redbooth) %></li>
+  <li><%= link_to "Cancel registration", cancel_user_registration_path %></li>
 <% end %>
