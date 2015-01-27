@@ -1,7 +1,19 @@
 class TwitterController < ApplicationController
 
   def index
-    @redbooth_token = session['devise.redbooth_data']['credentials']['token']
+    unless session['redbooth_token']
+      flash[:alert] = "You must be authenticated on Redbooth to see tweets"
+      redirect_to :root 
+    end
+    @redbooth_token = session['redbooth_token']
+    # @projects      = RestClient.get(
+      # 'https://redbooth.com/api/3/projects',
+      # params: { 
+        # access_token: @redbooth_token,
+        # order: 'id',
+        # archived: 'false'
+      # }
+    # )
     @running       = ServicePool.running?(current_user)
     @latest_tweets = current_user.tweet_events.last(10)
   end

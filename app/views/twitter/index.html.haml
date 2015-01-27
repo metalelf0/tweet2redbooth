@@ -22,3 +22,5 @@
         %td= tweet.tweeter
         %td= tweet.text
         %td= "#{time_ago_in_words(tweet.created_at)} ago"
+
+  %pre= @projects.inspect
