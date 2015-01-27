@@ -1,11 +1,12 @@
+#redboothAuth{data: {token: @redbooth_token }}
 .col-md-10.col-md-offset-1
-
   .control-form
     - if @running
       = form_tag(action: 'stop') do |form|
         = button_tag 'Stop service', class: 'btn btn-default'
     - else
       = form_tag(action: 'start') do |form|
+        #projectsSelectPlaceholder
         = label_tag 'keyword', "Keyword:"
         = text_field_tag 'keyword'
         = button_tag 'Start service', class: 'btn btn-default'

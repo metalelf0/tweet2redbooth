@@ -1,6 +1,7 @@
 class TwitterController < ApplicationController
 
   def index
+    @redbooth_token = session['devise.redbooth_data']['credentials']['token']
     @running       = ServicePool.running?(current_user)
     @latest_tweets = current_user.tweet_events.last(10)
   end
